@@ -14,6 +14,7 @@ public class AddressService {
     private final AddressConsumerFeing addressConsumerFeing;
 
     public void saveAddress(String cep) {
+        cep = cep.replace("-", "");
         Address address = addressConsumerFeing.getAddressByCep(cep);
         addressRepository.save(address);
     }
