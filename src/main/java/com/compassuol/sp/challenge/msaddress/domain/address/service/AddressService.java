@@ -22,6 +22,7 @@ public class AddressService {
             address = addressRepository.findByCep(cep);
         } else {
             address = addressConsumerFeing.getAddressByCep(cep);
+            address.setCep(cep);
             address = addressRepository.save(address);
         }
         return address;
